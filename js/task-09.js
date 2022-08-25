@@ -3,8 +3,8 @@ const fillSpan = document.querySelector('.color');
 const changeColorBody = document.querySelector('body');
 
 handleButton.addEventListener('click', () => {
-  changeColorBody.style.backgroundColor = getRandomHexColor();
-  fillSpan.textContent = getRandomHexColor();
+  changeColorBody.style.backgroundColor = `${getRandomHexColor()}`;
+  fillSpan.textContent = `${changeColorBody.style.backgroundColor}`;
 })
 
 
@@ -13,4 +13,4 @@ handleButton.addEventListener('click', () => {
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
-console.log(getRandomHexColor());
+

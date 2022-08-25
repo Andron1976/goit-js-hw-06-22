@@ -13,21 +13,17 @@ const refs = {
   divBoxes: document.querySelector("#boxes"),
 }
 
-// const colorElement = document.createElement('div');
-//   colorElement.style.backgroundColor = getRandomHexColor();
-//   colorElement.style.width = '30px'; 
-//   colorElement.style.height = '30px';
-
 refs.createBtn.addEventListener('click', createBoxes);
- 
+let lastSize = null;
 function createBoxes (amount){
   amount = Number(refs.inputParent.firstElementChild.value);
   const arrayBoxes = [];
-  let size = 30;
+  let size = lastSize || 30;
   for(let i=0; i<amount; i+=1){
     let oneBox = `<div style="width:${size + i*10}px; height:${size + i*10}px; background-color:${getRandomHexColor()};"></div>`
   arrayBoxes.push(oneBox);
   }
+  lastSize = size + amount*10;
   refs.divBoxes.insertAdjacentHTML('beforeend', arrayBoxes.join(''));
 };
 
